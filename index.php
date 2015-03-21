@@ -9,100 +9,12 @@
         <script src='/php_forum/jquery/jquery-2.1.1.min.js'></script>
         <script src='/php_forum/bootstrap/js/bootstrap.min.js'></script>
         <link rel='stylesheet' href='/php_forum/bootstrap/css/bootstrap.min.css'>
-        <style type='text/css'>
-        .header {
-            height: 200px;
-            background-color:#28A4C9;
-        }
-
-        .footer {
-                height: 40px;
-            }
-
-        .container {
-            padding: 10px 10px 10px 10px;
-            border-top: 1px solid black;
-            border-bottom: 1px solid black;
-        }
-
-        .alt {
-            background-color:#d4edff;
-        }
-
-        .forum-name-top {
-            font-weight:bold;
-            font-size:small;
-        }
-
-        .smaller {
-            font-size:smaller;
-        }
-
-        @media screen and (max-width: 767px) {
-            .hide-header {
-                display:none;
-            }
-
-            .mobile-view {
-                width:50%;
-                float:left;
-            }
-
-            .timestamp {
-                text-align:right;
-                margin-right:0px;
-            }
-
-            .row {
-                padding-top:5px;
-                padding-bottom:5px;
-            }
-        }
-
-        @media screen and (min-width: 768px) {
-            .forum-header {
-                background-color:inherit;
-                color:#245580;
-                font-weight:bold;
-                border-bottom: 2px solid black;
-                font-size:medium;
-            }
-
-            .container {
-                padding: 10px 25px 15px 25px;
-                margin-top:40px;
-                margin-left:auto;
-                margin-right:auto;
-                border: 1px solid #245580;
-                max-width:1200px;
-            }
-
-            .center {
-                text-align:center;
-            }
-
-            .middle {
-               margin: 8px 0px 0px 0px;
-            }
-
-            .pad {
-                padding: 8px 8px 8px 8px;
-            }
-
-            .pad-header {
-                padding: 8px 8px 0px 8px;
-            }
-
-            .forum-row-border {
-                border-bottom: 1px solid #245580;
-            }
-        }
-        </style>
-
+        <link rel='stylesheet' href='/php_forum/index.css'>
+        
         <script>
             $(document).ready(function() {
                 $("#container #row:last-child").removeClass("forum-row-border");
-                $("#row:nth-child(odd)").addClass("alt");
+                $("#container #row:last-child").addClass("forum-row-bottom");
             });
         </script>
     </head>
@@ -111,116 +23,199 @@
 
         </div>
 
-        <div class='container' id="container">
-            <div class='row forum-header hide-header' id="forum-header">
-                <div class='col-sm-5 pad-header'>Forum name</div>
-                <div class='col-sm-2 pad-header center'>Threads</div>
-                <div class='col-sm-2 pad-header center'>Posts</div>
-                <div class='col-sm-3 pad-header'>Last post</div>
+        <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">PHP Web Forum</a>
             </div>
-            <div class='row forum-row-border' id='row'>
-                <div class='col-sm-5 pad mobile-view'>
-                    <span class='forum-name-top'><u>News &amp; Announcements</u></span><br />
-                    <span class='smaller'>Latest updates and forum news</span>
-                </div>
-                <div class='col-sm-2 pad center middle hide-header'>75</div>
-                <div class='col-sm-2 pad center middle hide-header'>151</div>
-                <div class='col-sm-3 pad mobile-view timestamp'>
-                    <span class='smaller'>by csmith34</span><br />
-                    <span class='smaller'>Tue Feb 4, 2014 10:58 am</span>
-                </div>
+        
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Forum<span class="sr-only">(current)</span></a></li>
+                <li><a href="#">Seach</a></li>
+              </ul>   
+              <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Memebers <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Messages</a></li>
+                    <li><a href="#">Settings</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Log Out</a></li>
+                  </ul>
+                </li>
+              </ul>
             </div>
-            <div class='row forum-row-border' id='row'>
-                <div class='col-sm-5 pad mobile-view'>
-                    <span class='forum-name-top'><u>Gaming News &amp; Headlines</u></span><br />
-                    <span class='smaller'>Discuss your gaming news in here</span>
-                </div>
-                <div class='col-sm-2 pad center middle hide-header'>301</div>
-                <div class='col-sm-2 pad center middle hide-header'>1511</div>
-                <div class='col-sm-3 pad mobile-view timestamp'>
-                    <span class='smaller'>by j_anderson</span><br />
-                    <span class='smaller'>Wed Feb 5, 2014 6:06 am</span>
-                </div>
-            </div>
-            <div class='row forum-row-border' id='row'>
-                <div class='col-sm-5 pad mobile-view'>
-                    <span class='forum-name-top'><u>Member Introductions</u></span><br />
-                    <span class='smaller'>Introduce yourself to everyone</span>
-                </div>
-                <div class='col-sm-2 pad center middle hide-header'>622</div>
-                <div class='col-sm-2 pad center middle hide-header'>6511</div>
-                <div class='col-sm-3 pad mobile-view timestamp'>
-                    <span class='smaller'>by csmith34</span><br />
-                    <span class='smaller'>Mon Jan 5, 2014 4:23 pm</span>
-                </div>
-            </div>
-        </div>
+          </div>
+        </nav>
 
-
-        <div class='container' id="container">
-            <div class='row forum-header hide-header'>
-                <div class='col-sm-5 pad-header'>Forum name</div>
-                <div class='col-sm-2 pad-header center'>Threads</div>
-                <div class='col-sm-2 pad-header center'>Posts</div>
-                <div class='col-sm-3 pad-header'>Last post</div>
+        <div class="main-container">
+            
+            <div class="container" id="sidebar">
+                <div class="row navbar-title" id="navbar-title">
+                    <div class="col-sm-12"><u>Forum Information</u></div>
+                </div>
+                <div class="row navbar-row" id="row">
+                    <div class="col-sm-12"><u>Forum Members:</u> 5236</div>
+                </div>
+                <div class="row navbar-row" id="row">
+                    <div class="col-sm-12"><u>Total Threads:</u> 13,325</div>
+                </div>
+                <div class="row navbar-row forum-row-bottom" id="row">
+                    <div class="col-sm-12"><u>Total Posts:</u> 512,325</div>
+                </div>
+                <div class="linebreak">
+                    
+                </div>
+                 <div class="row navbar-title" id="navbar-title">
+                    <div class="col-sm-12"><u>Forum Information</u></div>
+                </div>
+                <div class="row navbar-row" id="row">
+                    <div class="col-sm-12"><u>Forum Members:</u> 5236</div>
+                </div>
+                <div class="row navbar-row" id="row">
+                    <div class="col-sm-12"><u>Total Threads:</u> 13,325</div>
+                </div>
+                <div class="row navbar-row forum-row-bottom" id="row">
+                    <div class="col-sm-12"><u>Total Posts:</u> 512,325</div>
+                </div>
             </div>
-            <?php
-                $items = array(
-                    ['title' => 'News &amp; Announcements',
-                     'desc' => 'Latest updates and forum news',
-                     'threads' => 66,
-                     'posts' => 432,
-                     'user' => 'csmith34',
-                     'time' => 'Tue Feb 4, 2014 10:58 am'],
-                     ['title' => 'Gaming News &amp; Headlines',
-                      'desc' => 'Discuess your gaming news here',
-                      'threads' => 235,
-                      'posts' => 566,
-                      'user' => 'j_anderson',
-                      'time' => 'Wed Feb 5, 2014 6:06 am'],
-                     ['title' => 'Member Introductions',
-                      'desc' => 'Introduce yourself to everyone',
-                      'threads' => 634,
-                      'posts' => 1234,
-                      'user' => 'rcoley',
-                      'time' => 'Mon Jan 5, 2014 4:23 pm']
-                );
-
-                foreach($items as $item) {
-                    echo '<div class=\'row forum-row-border\' id=\'row\'><div class=\'col-sm-5 pad mobile-view\'>';
-                    echo '<span class=\'forum-name-top\'><u>', $item['title'], '</u></span><br />';
-                    echo '<span class=\'smaller\'>', $item['desc'], '</span></div>';
-                    echo '<div class=\'col-sm-2 pad center middle hide-header\'>', $item['threads'], '</div>';
-                    echo '<div class=\'col-sm-2 pad center middle hide-header\'>', $item['posts'], '</div>';
-                    echo '<div class=\'col-sm-3 pad  mobile-view timestamp\'>';
-                    echo '<span class=\'smaller\'>by ', $item['user'], '</span><br />';
-                    echo '<span class=\'smaller\'>', $item['time'], '</span></div></div>';
-                }
-            ?>
-        </div>
-
-        <div class='container' id="container">
-            <div class='row forum-header hide-header'>
-                <div class='col-sm-5 pad-header'>Forum name</div>
-                <div class='col-sm-2 pad-header center'>Threads</div>
-                <div class='col-sm-2 pad-header center'>Posts</div>
-                <div class='col-sm-3 pad-header'>Last post</div>
+            
+            <div class="main-content">     
+                <div class='container' id="container">
+                    <div class="row forum-title" id="forum-title">
+                        <div class="col-sm-12"><u>PHP And SQL Community</u></div>
+                    </div>
+                    <div class='row forum-header hide-header' id="forum-header">
+                        <div class='col-sm-5 pad-title'>Forum name</div>
+                        <div class='col-sm-2 pad-title center'>Threads</div>
+                        <div class='col-sm-2 pad-title center'>Posts</div>
+                        <div class='col-sm-3 pad-title'>Last post</div>
+                    </div>
+                    <div class='row forum-row-border' id='row'>
+                        <div class='col-sm-5 pad mobile-view'>
+                            <span class='forum-name-top'><u>News &amp; Announcements</u></span><br />
+                            <span class='smaller'>Latest updates and forum news</span>
+                        </div>
+                        <div class='col-sm-2 pad center middle hide-header'>75</div>
+                        <div class='col-sm-2 pad center middle hide-header'>151</div>
+                        <div class='col-sm-3 pad mobile-view timestamp'>
+                            <span class='smaller'>by csmith34</span><br />
+                            <span class='smaller'>Tue Feb 4, 2014 10:58 am</span>
+                        </div>
+                    </div>
+                    <div class='row forum-row-border' id='row'>
+                        <div class='col-sm-5 pad mobile-view'>
+                            <span class='forum-name-top'><u>Gaming News &amp; Headlines</u></span><br />
+                            <span class='smaller'>Discuss your gaming news in here</span>
+                        </div>
+                        <div class='col-sm-2 pad center middle hide-header'>301</div>
+                        <div class='col-sm-2 pad center middle hide-header'>1511</div>
+                        <div class='col-sm-3 pad mobile-view timestamp'>
+                            <span class='smaller'>by j_anderson</span><br />
+                            <span class='smaller'>Wed Feb 5, 2014 6:06 am</span>
+                        </div>
+                    </div>
+                    <div class='row forum-row-border' id='row'>
+                        <div class='col-sm-5 pad mobile-view'>
+                            <span class='forum-name-top'><u>Member Introductions</u></span><br />
+                            <span class='smaller'>Introduce yourself to everyone</span>
+                        </div>
+                        <div class='col-sm-2 pad center middle hide-header'>622</div>
+                        <div class='col-sm-2 pad center middle hide-header'>6511</div>
+                        <div class='col-sm-3 pad mobile-view timestamp'>
+                            <span class='smaller'>by csmith34</span><br />
+                            <span class='smaller'>Mon Jan 5, 2014 4:23 pm</span>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="linebreak">
+                    
+                </div>
+        
+                <div class='container' id="container">
+                    <div class="row forum-title" id="forum-title">
+                        <div class="col-sm-12"><u>PHP And SQL Community</u></div>
+                    </div>
+                    <div class='row forum-header hide-header'>
+                        <div class='col-sm-5 pad-title'>Forum name</div>
+                        <div class='col-sm-2 pad-title center'>Threads</div>
+                        <div class='col-sm-2 pad-title center'>Posts</div>
+                        <div class='col-sm-3 pad-title'>Last post</div>
+                    </div>
+                    <?php
+                        $items = array(
+                            ['title' => 'News &amp; Announcements',
+                             'desc' => 'Latest updates and forum news',
+                             'threads' => 66,
+                             'posts' => 432,
+                             'user' => 'csmith34',
+                             'time' => 'Tue Feb 4, 2014 10:58 am'],
+                             ['title' => 'Gaming News &amp; Headlines',
+                              'desc' => 'Discuess your gaming news here',
+                              'threads' => 235,
+                              'posts' => 566,
+                              'user' => 'j_anderson',
+                              'time' => 'Wed Feb 5, 2014 6:06 am'],
+                             ['title' => 'Member Introductions',
+                              'desc' => 'Introduce yourself to everyone',
+                              'threads' => 634,
+                              'posts' => 1234,
+                              'user' => 'rcoley',
+                              'time' => 'Mon Jan 5, 2014 4:23 pm']
+                        );
+        
+                        foreach($items as $item) {
+                            echo '<div class=\'row forum-row-border\' id=\'row\'><div class=\'col-sm-5 pad mobile-view\'>';
+                            echo '<span class=\'forum-name-top\'><u>', $item['title'], '</u></span><br />';
+                            echo '<span class=\'smaller\'>', $item['desc'], '</span></div>';
+                            echo '<div class=\'col-sm-2 pad center middle hide-header\'>', $item['threads'], '</div>';
+                            echo '<div class=\'col-sm-2 pad center middle hide-header\'>', $item['posts'], '</div>';
+                            echo '<div class=\'col-sm-3 pad  mobile-view timestamp\'>';
+                            echo '<span class=\'smaller\'>by ', $item['user'], '</span><br />';
+                            echo '<span class=\'smaller\'>', $item['time'], '</span></div></div>';
+                        }
+                    ?>
+                </div>
+        
+                <div class="linebreak">
+                    
+                </div>
+        
+                <div class='container' id="container">
+                    <div class="row forum-title" id="forum-title">
+                        <div class="col-sm-12"><u>PHP And SQL Community</u></div>
+                    </div>
+                    <div class='row forum-header hide-header'>
+                        <div class='col-sm-5 pad-title'>Forum name</div>
+                        <div class='col-sm-2 pad-title center'>Threads</div>
+                        <div class='col-sm-2 pad-title center'>Posts</div>
+                        <div class='col-sm-3 pad-title'>Last post</div>
+                    </div>
+                    <?php
+                        $db = new SQLite3('./db/db.sqlite');
+                        $result = $db->query('SELECT * FROM forum');
+                        while($row = $result->fetchArray())
+                        {
+                            echo '<div class=\'row forum-row-border\' id=\'row\'><div class=\'col-sm-5 pad mobile-view\'>';
+                            echo '<span class=\'forum-name-top\'><u>', $row['name'], '</u></span><br />';
+                            echo '<span class=\'smaller\'>', $row['desc'], '</span></div>';
+                            echo '<div class=\'col-sm-2 pad center middle hide-header\'>', $row['threads'], '</div>';
+                            echo '<div class=\'col-sm-2 pad center middle hide-header\'>', $row['posts'], '</div>';
+                            echo '<div class=\'col-sm-3 pad mobile-view timestamp\'>';
+                            echo '<span class=\'smaller\'>by ', $row['user'], '</span><br />';
+                            echo '<span class=\'smaller\'>', $row['time'], '</span></div></div>';
+                        }
+                    ?>
+                </div>
             </div>
-            <?php
-                $db = new SQLite3('./db/db.sqlite');
-                $result = $db->query('SELECT * FROM forum');
-                while($row = $result->fetchArray())
-                {
-                    echo '<div class=\'row forum-row-border\' id=\'row\'><div class=\'col-sm-5 pad mobile-view\'>';
-                    echo '<span class=\'forum-name-top\'><u>', $row['name'], '</u></span><br />';
-                    echo '<span class=\'smaller\'>', $row['desc'], '</span></div>';
-                    echo '<div class=\'col-sm-2 pad center middle hide-header\'>', $row['threads'], '</div>';
-                    echo '<div class=\'col-sm-2 pad center middle hide-header\'>', $row['posts'], '</div>';
-                    echo '<div class=\'col-sm-3 pad mobile-view timestamp\'>';
-                    echo '<span class=\'smaller\'>by ', $row['user'], '</span><br />';
-                    echo '<span class=\'smaller\'>', $row['time'], '</span></div></div>';
-                }
-            ?>
         </div>
         <div class="footer">
 

@@ -1,0 +1,159 @@
+body {
+    background-color: #cddbe4;
+}
+
+.navbar {
+    margin-top: 1px;
+    margin-bottom: 0px;
+}
+
+.header {
+    height: 150px;
+    background:repeat;
+    background-image: url("/php_forum/img/header.png");
+    border-radius: 5px;
+}
+
+.footer {
+    height: 40px;
+}
+
+.forum-name-top {
+    font-weight: bold;
+    font-size: small;
+}
+
+.smaller {
+    font-size: smaller;
+}
+
+.linebreak {
+    height:10px;
+    clear:both;
+}
+
+@media screen and (max-width: 767px) {
+    .container {
+        padding: 10px 10px 10px 10px;
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+    }
+
+    .hide-header {
+        display: none;
+    }
+
+    .mobile-view {
+        width: 50%;
+        float: left;
+    }
+
+    .timestamp {
+        text-align: right;
+        margin-right: 0px;
+    }
+
+    .row {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .forum-title {
+        color: white;
+        height: 21px;
+        margin-bottom: 2px;
+        margin-top: 2px;
+    }
+    
+    .navbar-title {
+        color: white;
+        height: 21px;
+        margin-bottom: 2px;
+        margin-top:2px;
+    }
+    
+    .forum-header {
+        background:repeat-x;
+        background-image: url("/php_forum/img/forumheader.png");
+        color: #ffffff;
+        border-bottom: 2px solid black;
+        font-size: small;
+        height:21px;        
+    }
+
+    #container {
+        padding: 5px 20px 5px 20px;
+        margin-right: 0px;
+        border: 1px solid #245580;
+        border-radius: 5px;
+        background-color: #2e2e2e;
+        width:100%;
+    }
+    
+    #sidebar {
+        padding: 5px 20px 5px 20px;
+        margin-right: 10px;
+        border: 1px solid #245580;
+        border-radius: 5px;
+        width: 24%;
+        background-color: #2e2e2e;
+        float:left;
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    .middle {
+        margin: 8px 0px 0px 0px;
+    }
+
+    .pad {
+        padding: 8px 8px 8px 8px;
+    }
+    
+    .pad-title {
+        padding-top: 1px;
+    }
+
+    .forum-row-border {
+        border-bottom: 1px solid #91a2aa;
+    }
+    
+    .navbar-row {
+        border-bottom: 1px solid #91a2aa;
+        padding: 5px 0px 5px 0px;
+    }
+
+    .dropdown-menu {
+        text-align: right;
+    }
+
+    #row {
+        background-color: #cddbe4;
+    }
+
+    .forum-row-bottom {
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+
+    .main-container {
+        width: 80%;
+        height: auto;
+        margin-right: 10%;
+        margin-left: 10%;
+        background-color: white;
+        padding: 10px;
+        border-right: 1px solid #91a2aa;
+        border-left: 1px solid #91a2aa;
+        float:left;
+    }
+    
+    .main-content {
+        width:75%;
+        float:left;
+    }
+}
