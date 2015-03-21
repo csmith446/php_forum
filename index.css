@@ -94,7 +94,7 @@ body {
     
     #sidebar {
         padding: 5px 20px 5px 20px;
-        margin-right: 10px;
+        margin-right: 1%;
         border: 1px solid #245580;
         border-radius: 5px;
         width: 24%;
@@ -125,6 +125,7 @@ body {
     .navbar-row {
         border-bottom: 1px solid #91a2aa;
         padding: 5px 0px 5px 0px;
+        font-size:small;
     }
 
     .dropdown-menu {
