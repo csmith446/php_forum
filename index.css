@@ -186,6 +186,8 @@ u > a {
     }
 
     .center {
+        margin-left:auto;
+        margin-right:auto;
         text-align: center;
     }
 
@@ -206,6 +208,11 @@ u > a {
     .row-bottom-radius {
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
+    }
+    
+    .buffer {
+        padding:0px;
+        width:20px;
     }
 
     .row-bottom-border {
@@ -239,6 +246,10 @@ u > a {
         height: 24px;
         padding: 1px 5px;
         margin-top: 4px;
+    }
+    
+    .right-align {
+        text-align: right;
     }
 }
 
