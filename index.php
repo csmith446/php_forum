@@ -19,7 +19,7 @@
 
                 $( "#search-btn" ).click(function() {
                     if ($("form.navbar-form").hasClass("hidden")) {
-                        $("form.navbar-form").removeClass("hidden");
+                        $("form.navbar-form").removeClass("hidden");                        
                     }
                     else {
                         $("form.navbar-form").addClass("hidden");
@@ -27,7 +27,14 @@
                 });
 
                 $( "#close-btn" ).click(function() {
-                        $("form.navbar-form").addClass("hidden");
+                    $("form.navbar-form").addClass("hidden");
+                    $("input.form-control").removeAttr("value");
+                });
+                
+                $( "form.navbar-form").submit(function (event) {
+                    var len = $("input.form-control").val().length;
+                    if (len > 0) return
+                    else event.preventDefault();
                 });
             });
         </script>
@@ -47,14 +54,16 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Forum<span class="sr-only">(current)</span></a></li>
-                    <li><a href="#search" id="search-btn">Search</a></li>
+                    <li><a href="#" id="search-btn">Search</a></li>
                 </ul>
-                <form class="navbar-form navbar-left hidden" id="navbar-form" role="search" action="index.php" method="get">
+                <form class="navbar-form navbar-left 
+                    <?php if(!isset($_GET['query'])) echo "hidden" ?>" id="navbar-form" role="search" action="index.php" method="get">
                     <div class="form-group">
-                        <input type="text" class="form-control" name="query" placeholder="Enter Search Query">
+                        <input type="text" class="form-control" name="query" 
+                            <?php echo isset($_GET['query']) ? 'value=\''. $_GET['query'] .'\'' : ""; ?> placeholder="Enter Search Query">
                     </div>
-                    <button type="submit" id='submit-btn' class="btn btn-orange">Submit</button>
-                    <button type="button" id='close-btn' class="btn btn-danger">Close</button>
+                    <button type="submit" id='submit-btn' class="btn btn-custom">Submit</button>
+                    <button type="button" id='close-btn' class="btn btn-custom" href="/php_forum/" >Close</button>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
@@ -82,17 +91,17 @@
         echo '</div>' . PHP_EOL;
         echo '<div class="row sidebar-row">' . PHP_EOL;
         echo '    <div class="col-sm-12 navbar-item">' . PHP_EOL;
-        echo '        <span class="orange-text"><u>Forum Members:</u></span> 5236' . PHP_EOL;
+        echo '        <span class="custom-text">Forum Members:</span> 5236' . PHP_EOL;
         echo '    </div>' . PHP_EOL;
         echo '</div>' . PHP_EOL;
         echo '<div class="row sidebar-row">' . PHP_EOL;
         echo '    <div class="col-sm-12 navbar-item">' . PHP_EOL;
-        echo '        <span class="orange-text"><u>Total Threads:</u></span> 13,325' . PHP_EOL;
+        echo '        <span class="custom-text">Total Threads:</span> 13,325' . PHP_EOL;
         echo '    </div>' . PHP_EOL;
         echo '</div>' . PHP_EOL;
         echo '<div class="row sidebar-row row-bottom-radius">' . PHP_EOL;
         echo '    <div class="col-sm-12 navbar-item">' . PHP_EOL;
-        echo '        <span class="orange-text"><u>Total Posts:</u></span> 512,325' . PHP_EOL;
+        echo '        <span class="custom-text">Total Posts:</span> 512,325' . PHP_EOL;
         echo '    </div>' . PHP_EOL;
         echo '</div>' . PHP_EOL;
         echo '<div class="sidebreak"></div>' . PHP_EOL;

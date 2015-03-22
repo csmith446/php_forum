@@ -1,5 +1,5 @@
 body {
-    background-color: #cddbe4;
+    background-color: #fdfdf3;
     font-weight: 200;
 }
 u > a {
@@ -20,6 +20,18 @@ u > a {
     font-weight: 200;
 }
 
+.navbar-inverse .navbar-nav > .active > a {
+    background-color: #eb4a4a;
+}
+
+.navbar-inverse .navbar-nav > .active > a:hover {
+    background-color: #e61c1c;
+}
+
+.navbar-inverse .navbar-nav > .active > a:focus {
+    background-color: #eb4a4a;
+}
+
 .navbar .navbar-toggle {
     margin-top: 2px;
     margin-bottom: 0px;
@@ -36,6 +48,11 @@ u > a {
 
 .dropdown-menu > li > a {
     font-weight: 200;
+}
+
+.dropdown-menu > li > a:hover {
+    background-color: #eb4a4a;
+    color: #fff;
 }
 
 .header {
@@ -65,13 +82,13 @@ u > a {
     height: 5px;
 }
 
-.orange-text {
-    color: #e57100;
+.custom-text {
+    color: #e61c1c;
 }
 
-.btn-orange {
-    background-color: #e57200;
-    border-color: #e57200;
+.btn-custom {
+    background-color: #eb4a4a;
+    border-color: #eb4a4a;
     color: #fff;
 }
 
@@ -79,10 +96,14 @@ u > a {
     width: 57px;
 }
 
-.btn-orange:hover {
-    background-color: #ec9c4c;
-    border-color: #ec9c4c;
+.btn-custom:hover {
+    background-color: #e61c1c;
+    border-color: #e61c1c;
     color: #fff;
+}
+
+.forum-row:hover {
+    background-color: #dafbfb;
 }
 
 @media screen and (max-width: 767px) {
@@ -120,8 +141,8 @@ u > a {
         margin-left: 10%;
         background-color: white;
         padding: 10px;
-        border-right: 1px solid #91a2aa;
-        border-left: 1px solid #91a2aa;
+        border-right: 1px solid #cacac2;
+        border-left: 1px solid #cacac2;
         float: left;
     }
 
@@ -158,7 +179,7 @@ u > a {
 
     .forum-header {
         background: repeat-x;
-        background-color: #e57100;
+        background-color: #eb4a4a;
         color: #ffffff;
         border-bottom: 2px solid black;
         font-size: small;
@@ -175,19 +196,19 @@ u > a {
     }
 
     .sidebar-row {
-        border-bottom: 1px solid #91a2aa;
+        border-bottom: 1px solid #cacac2;
         padding: 0px 0px 0px 0px;
         font-size: small;
-        background-color: #cddbe4;
+        background-color: #fdfdf3;
     }
 
     .forum-row {
-        background-color: #cddbe4;
+        background-color: #fdfdf3;
     }
 
     .center {
-        margin-left:auto;
-        margin-right:auto;
+        margin-left: auto;
+        margin-right: auto;
         text-align: center;
     }
 
@@ -209,14 +230,14 @@ u > a {
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
     }
-    
+
     .buffer {
-        padding:0px;
-        width:20px;
+        padding: 0px;
+        width: 20px;
     }
 
     .row-bottom-border {
-        border-bottom: 1px solid #91a2aa;
+        border-bottom: 1px solid #cacac2;
     }
 
     .navbar-item {
@@ -247,7 +268,7 @@ u > a {
         padding: 1px 5px;
         margin-top: 4px;
     }
-    
+
     .right-align {
         text-align: right;
     }
