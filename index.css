@@ -1,5 +1,41 @@
 body {
     background-color: #cddbe4;
+    font-weight: 200;
+}
+u > a {
+    font-weight: 400;
+}
+
+.navbar {
+    min-height: 36px;
+    margin-top: 1px;
+    margin-bottom: 0px;
+    border-radius: 0px;
+}
+
+.navbar .navbar-nav > li > a {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    line-height: 36px;
+    font-weight: 200;
+}
+
+.navbar .navbar-toggle {
+    margin-top: 2px;
+    margin-bottom: 0px;
+    padding: 9px 10px;
+}
+
+.navbar .navbar-form {
+    margin-top: 2px;
+    margin-bottom: 0px
+}
+.navbar-nav .navbar-collapse {
+    border-color: black;
+}
+
+.dropdown-menu > li > a {
+    font-weight: 200;
 }
 
 .header {
@@ -29,35 +65,24 @@ body {
     height: 5px;
 }
 
-.navbar {
-    min-height:36px;
-    margin-top:1px;
-    margin-bottom:0px;
-    border-radius:0px;
-}
-
-.navbar .navbar-nav > li > a {
-    padding-top: 0px;
-    padding-bottom: 0px;
-    line-height: 36px;
-}
-
-.navbar .navbar-toggle {
-    margin-top: 2px;
-    margin-bottom: 0px;
-    padding: 9px 10px;
-}
-
-.navbar .navbar-form {
-    margin-top: 2px;
-    margin-bottom: 0px
-}
-.navbar .navbar-collapse {
-    border-color: black;
-}
-
 .orange-text {
     color: #e57100;
+}
+
+.btn-orange {
+    background-color: #e57200;
+    border-color: #e57200;
+    color: #fff;
+}
+
+.btn-danger {
+    width: 57px;
+}
+
+.btn-orange:hover {
+    background-color: #ec9c4c;
+    border-color: #ec9c4c;
+    color: #fff;
 }
 
 @media screen and (max-width: 767px) {
@@ -86,7 +111,6 @@ body {
         padding-bottom: 5px;
     }
 }
-
 
 @media screen and (min-width: 768px) {
     .main-container {
@@ -175,6 +199,8 @@ body {
 
     .pad-title {
         padding-top: 1px;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 
     .row-bottom-radius {
@@ -194,39 +220,44 @@ body {
     .dropdown-menu {
         text-align: right;
     }
-
     .navbar-form {
         padding: 0px;
     }
 
     .form-control {
-        height: 28px;
-        margin-top:2px;
+        height: 24px;
+        margin-top: 4px;
+        font-size: small;
+        line-height: normal;
+    }
+
+    .navbar-form {
+        padding: 0px;
     }
 
     .btn {
-        height: 28px;
-        padding: 2px 5px;
-        margin-top: 1px;
+        height: 24px;
+        padding: 1px 5px;
+        margin-top: 4px;
     }
 }
 
- @media screen and (min-width: 1224px) {
- .sidebar-container {
+@media screen and (min-width: 1224px) {
+    .sidebar-container {
         width: 19%;
     }
 
     .content-container {
         width: 80%;
     }
- }
+}
 
- @media screen and (min-width: 1824px) {
- .sidebar-container {
+@media screen and (min-width: 1824px) {
+    .sidebar-container {
         width: 14%;
     }
 
     .content-container {
         width: 85%;
     }
- }
+}

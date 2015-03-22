@@ -16,6 +16,19 @@
                 $("div.forum-container > div.forum-row:last-child").removeClass("row-bottom-border");
                 $("div.forum-container > div.forum-row:last-child").addClass("row-bottom-radius");
                 $("div.sidebar-container > div:last-child").addClass("hidden");
+
+                $( "#search-btn" ).click(function() {
+                    if ($("form.navbar-form").hasClass("hidden")) {
+                        $("form.navbar-form").removeClass("hidden");
+                    }
+                    else {
+                        $("form.navbar-form").addClass("hidden");
+                    }
+                });
+
+                $( "#close-btn" ).click(function() {
+                        $("form.navbar-form").addClass("hidden");
+                });
             });
         </script>
     </head>
@@ -34,13 +47,14 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Forum<span class="sr-only">(current)</span></a></li>
-                    <li><a href="#" id='seach-btn'>Seach</a></li>
+                    <li><a href="#search" id="search-btn">Search</a></li>
                 </ul>
-                <form class="navbar-form navbar-left hidden" role="search">
+                <form class="navbar-form navbar-left hidden" id="navbar-form" role="search" action="index.php" method="get">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input type="text" class="form-control" name="query" placeholder="Enter Search Query">
                     </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
+                    <button type="submit" id='submit-btn' class="btn btn-orange">Submit</button>
+                    <button type="button" id='close-btn' class="btn btn-danger">Close</button>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
