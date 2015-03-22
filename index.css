@@ -6,7 +6,6 @@ body {
     height: 150px;
     background: repeat;
     background-image: url("/php_forum/img/header.png");
-    border-radius: 5px;
 }
 
 .footer {
@@ -24,19 +23,23 @@ body {
 
 .divbreak {
     height: 10px;
-    clear: both;
 }
 
-.navbar { 
-    min-height:38px;
-    margin-top:1px;   
+.sidebreak {
+    height: 5px;
+}
+
+.navbar {
+    min-height:36px;
+    margin-top:1px;
     margin-bottom:0px;
+    border-radius:0px;
 }
 
 .navbar .navbar-nav > li > a {
     padding-top: 0px;
     padding-bottom: 0px;
-    line-height: 38px;
+    line-height: 36px;
 }
 
 .navbar .navbar-toggle {
@@ -175,6 +178,11 @@ body {
     }
 
     .row-bottom-radius {
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+
+    .row-bottom-border {
         border-bottom: 1px solid #91a2aa;
     }
 
@@ -187,20 +195,29 @@ body {
         text-align: right;
     }
 
-    .forum-row-bottom {
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
+    .navbar-form {
+        padding: 0px;
+    }
+
+    .form-control {
+        height: 28px;
+        margin-top:2px;
+    }
+
+    .btn {
+        height: 28px;
+        padding: 2px 5px;
+        margin-top: 1px;
     }
 }
 
-
  @media screen and (min-width: 1224px) {
- .sidebar-container {  
+ .sidebar-container {
         width: 19%;
     }
-    
+
     .content-container {
-        width: 80%;  
+        width: 80%;
     }
  }
 
@@ -208,9 +225,8 @@ body {
  .sidebar-container {
         width: 14%;
     }
-    
+
     .content-container {
         width: 85%;
     }
  }
- 

@@ -10,12 +10,12 @@
         <script src='/php_forum/bootstrap/js/bootstrap.min.js'></script>
         <link rel='stylesheet' href='/php_forum/bootstrap/css/bootstrap.min.css'>
         <link rel='stylesheet' href='/php_forum/index.css'>
-        <link rel='stylesheet' href='/php_forum/navbar.css'>
-        
+
         <script>
             $(document).ready(function() {
-                $("#container #row:last-child").removeClass("forum-row-border");
-                $("#container #row:last-child").addClass("row-bottom-radius");
+                $("div.forum-container > div.forum-row:last-child").removeClass("row-bottom-border");
+                $("div.forum-container > div.forum-row:last-child").addClass("row-bottom-radius");
+                $("div.sidebar-container > div:last-child").addClass("hidden");
             });
         </script>
     </head>
@@ -33,27 +33,24 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active">
-                        <a href="#">Forum<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li>
-                        <a href="#">Seach</a>
-                    </li>
+                    <li class="active"><a href="#">Forum<span class="sr-only">(current)</span></a></li>
+                    <li><a href="#" id='seach-btn'>Seach</a></li>
                 </ul>
+                <form class="navbar-form navbar-left hidden" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Memebers <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                            role="button" aria-expanded="false">Memebers<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li>
-                                <a href="#">Messages</a>
-                            </li>
-                            <li>
-                                <a href="#">Settings</a>
-                            </li>
+                            <li><a href="#">Messages</a></li>
+                            <li><a href="#">Settings</a></li>
                             <li class="divider"></li>
-                            <li>
-                                <a href="#">Log Out</a>
-                            </li>
+                            <li><a href="#">Log Out</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -61,79 +58,82 @@
         </nav>
 
         <div class="main-container">
-            
-            <div class="sidebar-container container hide-content">
-                <div class="row sidebar-title">
-                    <div class="col-sm-12"><u>Forum Information</u></div>
-                </div>
-                <div class="row sidebar-row">
-                    <div class="col-sm-12 navbar-item">
-                        <span class="orange-text"><u>Forum Members:</u></span> 5236</div>
-                </div>
-                <div class="row sidebar-row">
-                    <div class="col-sm-12 navbar-item">
-                        <span class="orange-text"><u>Total Threads:</u></span> 13,325</div>
-                </div>
-                <div class="row sidebar-row row-bottom-radius">
-                    <div class="col-sm-12 navbar-item">
-                        <span class="orange-text"><u>Total Posts:</u></span> 512,325</div>
-                </div>
-                <div class="linebreak">
-                    
-                </div>
-                 <div class="row sidebar-title">
-                    <div class="col-sm-12"><u>Forum Information</u></div>
-                </div>
-                <div class="row sidebar-row">
-                    <div class="col-sm-12 navbar-item">
-                        <span class="orange-text"><u>Forum Members:</u></span> 5236</div>
-                </div>
-                <div class="row sidebar-row">
-                    <div class="col-sm-12 navbar-item">
-                        <span class="orange-text"><u>Total Threads:</u></span> 13,325</div>
-                </div>
-                <div class="row sidebar-row row-bottom-radius">
-                    <div class="col-sm-12 navbar-item">
-                        <span class="orange-text"><u>Total Posts:</u></span> 512,325</div>
-                </div>
-            </div>
-            
-            <div class="content-container"> 
-                <?php 
-                    $db = new SQLite3("./db/db.sqlite");
-                    $sql = 'SELECT * FROM Category';
-                    $res = $db->query($sql);
-    
-                    $ids = [];
-                    while($row = $res->fetchArray()) {
-                        $ids[$row['id']] = $row['name']; 
-                    }
-                
-                    foreach($ids as $id => $name) {
-                        echo '<div class=\'container forum-container\'><div class=\'row forum-title\' id=\'forum-title\'>';
-                        echo '<div class=\'col-sm-12\'><u>', $name, '</u></div></div>';
-                        echo '<div class=\'row forum-header hide-content\'><div class=\'col-sm-5 pad-title\'>Forum name</div>';
-                        echo '<div class=\'col-sm-2 pad-title center\'>Threads</div><div class=\'col-sm-2 pad-title center\'>Posts</div>';
-                        echo '<div class=\'col-sm-3 pad-title\'>Last post</div></div>';
 
-                        $db = new SQLite3('./db/db.sqlite');
-                        $sql = 'SELECT * FROM Forum WHERE cat_id = \'' . $id . '\'';
-                        $result = $db->query($sql);
-                        while($row = $result->fetchArray())
-                        {
-                            echo '<div class=\'row forum-row forum-row-border\' id=\'row\'><div class=\'col-sm-5 pad mobile-view\'>';
-                            echo '<span class=\'forum-name-top\'><u><a href=\'#\'>', $row['name'], '</a></u></span><br />';
-                            echo '<span class=\'smaller\'>', $row['desc'], '</span></div>';
-                            echo '<div class=\'col-sm-2 pad center middle hide-content\'>', $row['threads'], '</div>';
-                            echo '<div class=\'col-sm-2 pad center middle hide-content\'>', $row['posts'], '</div>';
-                            echo '<div class=\'col-sm-3 pad mobile-view timestamp\'>';
-                            echo '<span class=\'smaller\'>by <a href=\'#\'>', $row['user'], '</a></span><br />';
-                            echo '<span class=\'smaller\'>', $row['time'], '</span></div></div>';
-                        }
-                    
-                        echo '</div><div class=\'divbreak\'></div>';
-                    }
-                ?>
+            <div class="sidebar-container container hide-content">
+<?php
+    $count = 0;
+    while ($count < 6) {
+        echo '<div class="row sidebar-title">' . PHP_EOL;
+        echo '    <div class="col-sm-12"><u>Forum Information</u></div>' . PHP_EOL;
+        echo '</div>' . PHP_EOL;
+        echo '<div class="row sidebar-row">' . PHP_EOL;
+        echo '    <div class="col-sm-12 navbar-item">' . PHP_EOL;
+        echo '        <span class="orange-text"><u>Forum Members:</u></span> 5236' . PHP_EOL;
+        echo '    </div>' . PHP_EOL;
+        echo '</div>' . PHP_EOL;
+        echo '<div class="row sidebar-row">' . PHP_EOL;
+        echo '    <div class="col-sm-12 navbar-item">' . PHP_EOL;
+        echo '        <span class="orange-text"><u>Total Threads:</u></span> 13,325' . PHP_EOL;
+        echo '    </div>' . PHP_EOL;
+        echo '</div>' . PHP_EOL;
+        echo '<div class="row sidebar-row row-bottom-radius">' . PHP_EOL;
+        echo '    <div class="col-sm-12 navbar-item">' . PHP_EOL;
+        echo '        <span class="orange-text"><u>Total Posts:</u></span> 512,325' . PHP_EOL;
+        echo '    </div>' . PHP_EOL;
+        echo '</div>' . PHP_EOL;
+        echo '<div class="sidebreak"></div>' . PHP_EOL;
+        $count += 1;
+    }
+?>
+            </div>
+
+            <div class="content-container">
+<?php
+    $db = new SQLite3("./db/db.sqlite");
+    $sql = 'SELECT * FROM Category';
+    $res = $db->query($sql);
+
+    $ids = [];
+    while($row = $res->fetchArray()) {
+        $ids[$row['id']] = $row['name'];
+    }
+
+    foreach($ids as $id => $name) {
+        echo '<div class=\'container forum-container\'>' . PHP_EOL;
+        echo '    <div class=\'row forum-title\' id=\'forum-title\'>' . PHP_EOL;
+        echo '        <div class=\'col-sm-12\'><u>', $name, '</u></div>' . PHP_EOL;
+        echo '    </div>' . PHP_EOL;
+        echo '    <div class=\'row forum-header hide-content\'>'  . PHP_EOL;
+        echo '        <div class=\'col-sm-5 pad-title\'>Forum name</div>' . PHP_EOL;
+        echo '        <div class=\'col-sm-2 pad-title center\'>Threads</div>' . PHP_EOL;
+        echo '        <div class=\'col-sm-2 pad-title center\'>Posts</div>' . PHP_EOL;
+        echo '        <div class=\'col-sm-3 pad-title\'>Last post</div>'  . PHP_EOL;
+        echo '    </div>' . PHP_EOL;
+
+        $db = new SQLite3('./db/db.sqlite');
+        $sql = 'SELECT * FROM Forum WHERE cat_id = \'' . $id . '\'';
+        $result = $db->query($sql);
+        while($row = $result->fetchArray())
+        {
+            echo '    <div class=\'row forum-row row-bottom-border\'>' . PHP_EOL;
+            echo '        <div class=\'col-sm-5 pad mobile-view\'>' . PHP_EOL;
+            echo '            <span class=\'forum-name-top\'>' . PHP_EOL;
+            echo '                <u><a href=\'#\'>', $row['name'], '</a></u></span><br />' . PHP_EOL;
+            echo '            <span class=\'smaller\'>', $row['desc'], '</span>' . PHP_EOL;
+            echo '        </div>' . PHP_EOL;
+            echo '        <div class=\'col-sm-2 pad center middle hide-content\'>', $row['threads'], '</div>' . PHP_EOL;
+            echo '        <div class=\'col-sm-2 pad center middle hide-content\'>', $row['posts'], '</div>' . PHP_EOL;
+            echo '        <div class=\'col-sm-3 pad mobile-view timestamp\'>' . PHP_EOL;
+            echo '            <span class=\'smaller\'>by <a href=\'#\'>', $row['user'], '</a></span><br />' . PHP_EOL;
+            echo '            <span class=\'smaller\'>', $row['time'], '</span>' . PHP_EOL;
+            echo '        </div>' . PHP_EOL;
+            echo '    </div>' . PHP_EOL;
+        }
+
+        echo '</div>' . PHP_EOL;
+        echo '<div class=\'divbreak\'></div>' . PHP_EOL;
+    }
+?>
             </div>
         </div>
         <div class="footer"></div>
