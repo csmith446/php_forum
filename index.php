@@ -104,10 +104,10 @@
         echo '        <div class=\'col-sm-12\'><u>', $name, '</u></div>' . PHP_EOL;
         echo '    </div>' . PHP_EOL;
         echo '    <div class=\'row forum-header hide-content\'>'  . PHP_EOL;
-        echo '        <div class=\'col-sm-5 pad-title\'>Forum name</div>' . PHP_EOL;
+        echo '        <div class=\'col-sm-6 pad-title\'>Forum name</div>' . PHP_EOL;
         echo '        <div class=\'col-sm-2 pad-title center\'>Threads</div>' . PHP_EOL;
-        echo '        <div class=\'col-sm-2 pad-title center\'>Posts</div>' . PHP_EOL;
-        echo '        <div class=\'col-sm-3 pad-title\'>Last post</div>'  . PHP_EOL;
+        echo '        <div class=\'col-sm-1 pad-title center\'>Posts</div>' . PHP_EOL;
+        echo '        <div class=\'col-sm-3 pad-title right-align\'>Last post</div>'  . PHP_EOL;
         echo '    </div>' . PHP_EOL;
 
         $db = new SQLite3('./db/db.sqlite');
@@ -116,14 +116,14 @@
         while($row = $result->fetchArray())
         {
             echo '    <div class=\'row forum-row row-bottom-border\'>' . PHP_EOL;
-            echo '        <div class=\'col-sm-5 pad mobile-view\'>' . PHP_EOL;
+            echo '        <div class=\'col-sm-6 pad mobile-view\'>' . PHP_EOL;
             echo '            <span class=\'forum-name-top\'>' . PHP_EOL;
             echo '                <u><a href=\'#\'>', $row['name'], '</a></u></span><br />' . PHP_EOL;
             echo '            <span class=\'smaller\'>', $row['desc'], '</span>' . PHP_EOL;
             echo '        </div>' . PHP_EOL;
-            echo '        <div class=\'col-sm-2 pad center middle hide-content\'>', $row['threads'], '</div>' . PHP_EOL;
-            echo '        <div class=\'col-sm-2 pad center middle hide-content\'>', $row['posts'], '</div>' . PHP_EOL;
-            echo '        <div class=\'col-sm-3 pad mobile-view timestamp\'>' . PHP_EOL;
+            echo '        <div class=\'col-sm-2 pad center middle hide-content small \'>', $row['threads'], '</div>' . PHP_EOL;
+            echo '        <div class=\'col-sm-1 pad center middle hide-content small\'>', $row['posts'], '</div>' . PHP_EOL;
+            echo '        <div class=\'col-sm-3 pad mobile-view timestamp right-align\'>' . PHP_EOL;
             echo '            <span class=\'smaller\'>by <a href=\'#\'>', $row['user'], '</a></span><br />' . PHP_EOL;
             echo '            <span class=\'smaller\'>', $row['time'], '</span>' . PHP_EOL;
             echo '        </div>' . PHP_EOL;
