@@ -8,6 +8,7 @@
 
         <script src='/php_forum/jquery/jquery-2.1.1.min.js'></script>
         <script src='/php_forum/bootstrap/js/bootstrap.min.js'></script>
+        <script src="/php_forum/disableSelection.js"></script>
         <link rel='stylesheet' href='/php_forum/bootstrap/css/bootstrap.min.css'>
         <link rel='stylesheet' href='/php_forum/index.css'>
 
@@ -19,18 +20,20 @@
 
                 $( "#search-btn" ).click(function() {
                     if ($("form.navbar-form").hasClass("hidden")) {
-                        $("form.navbar-form").removeClass("hidden");                        
+                        $("form.navbar-form").removeClass("hidden");
                     }
                     else {
                         $("form.navbar-form").addClass("hidden");
                     }
                 });
 
+                $( "#search-btn").disableSelection();
+
                 $( "#close-btn" ).click(function() {
                     $("form.navbar-form").addClass("hidden");
                     $("input.form-control").removeAttr("value");
                 });
-                
+
                 $( "form.navbar-form").submit(function (event) {
                     var len = $("input.form-control").val().length;
                     if (len > 0) return
@@ -53,13 +56,13 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Forum<span class="sr-only">(current)</span></a></li>
-                    <li><a href="#" id="search-btn">Search</a></li>
+                    <li class="active"><a href="/php_forum/">Forum<span class="sr-only">(current)</span></a></li>
+                    <li><span class="fake-a" id="search-btn">Search</span></li>
                 </ul>
-                <form class="navbar-form navbar-left 
+                <form class="navbar-form navbar-left
                     <?php if(!isset($_GET['query'])) echo "hidden" ?>" id="navbar-form" role="search" action="index.php" method="get">
                     <div class="form-group">
-                        <input type="text" class="form-control" name="query" 
+                        <input type="text" class="form-control" name="query"
                             <?php echo isset($_GET['query']) ? 'value=\''. $_GET['query'] .'\'' : ""; ?> placeholder="Enter Search Query">
                     </div>
                     <button type="submit" id='submit-btn' class="btn btn-custom">Submit</button>
@@ -141,13 +144,13 @@
             echo '    <div class=\'row forum-row row-bottom-border\'>' . PHP_EOL;
             echo '        <div class=\'col-sm-6 pad mobile-view\'>' . PHP_EOL;
             echo '            <span class=\'forum-name-top\'>' . PHP_EOL;
-            echo '                <u><a href=\'#\'>', $row['name'], '</a></u></span><br />' . PHP_EOL;
+            echo '                <u><a href=\'#\' id=\'forum-link\'>', $row['name'], '</a></u></span><br />' . PHP_EOL;
             echo '            <span class=\'smaller\'>', $row['desc'], '</span>' . PHP_EOL;
             echo '        </div>' . PHP_EOL;
             echo '        <div class=\'col-sm-2 pad center middle hide-content small \'>', $row['threads'], '</div>' . PHP_EOL;
             echo '        <div class=\'col-sm-1 pad center middle hide-content small\'>', $row['posts'], '</div>' . PHP_EOL;
             echo '        <div class=\'col-sm-3 pad mobile-view timestamp right-align\'>' . PHP_EOL;
-            echo '            <span class=\'smaller\'>by <a href=\'#\'>', $row['user'], '</a></span><br />' . PHP_EOL;
+            echo '            <span class=\'smaller\'>by <a href=\'#\' id=\'forum-link\'>', $row['user'], '</a></span><br />' . PHP_EOL;
             echo '            <span class=\'smaller\'>', $row['time'], '</span>' . PHP_EOL;
             echo '        </div>' . PHP_EOL;
             echo '    </div>' . PHP_EOL;

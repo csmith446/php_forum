@@ -6,6 +6,16 @@ u > a {
     font-weight: 400;
 }
 
+.row a:link { color: #e61c1c; }
+.row a:visited { color: #730e0e; }
+.row a:hover { color: #730e0e; }
+.row a:active { color: #730e0e; }
+
+.navbar-inverse .navbar-nav > li > .fake-a:hover { color: #fff; }
+.navbar-inverse  .navbar-nav > .active > a { background-color: #eb4a4a; }
+.navbar-inverse  .navbar-nav > .active > a:hover { background-color: #e61c1c; }
+.navbar-inverse  .navbar-nav > .active > a:focus { background-color: #eb4a4a; }
+
 .navbar {
     min-height: 36px;
     margin-top: 1px;
@@ -13,24 +23,24 @@ u > a {
     border-radius: 0px;
 }
 
-.navbar .navbar-nav > li > a {
+.navbar .navbar-nav > li > a, .fake-a {
     padding-top: 0px;
     padding-bottom: 0px;
     line-height: 36px;
     font-weight: 200;
 }
 
-.navbar-inverse .navbar-nav > .active > a {
-    background-color: #eb4a4a;
+.nav > li > .fake-a {
+    position: relative;
+    display: block;
+    padding: 0px 15px;
 }
 
-.navbar-inverse .navbar-nav > .active > a:hover {
-    background-color: #e61c1c;
+.navbar-inverse .navbar-nav > li > .fake-a {
+    cursor: pointer;
+    color: #9d9d9d;
 }
 
-.navbar-inverse .navbar-nav > .active > a:focus {
-    background-color: #eb4a4a;
-}
 
 .navbar .navbar-toggle {
     margin-top: 2px;
@@ -42,6 +52,7 @@ u > a {
     margin-top: 2px;
     margin-bottom: 0px
 }
+
 .navbar-nav .navbar-collapse {
     border-color: black;
 }
@@ -90,10 +101,7 @@ u > a {
     background-color: #eb4a4a;
     border-color: #eb4a4a;
     color: #fff;
-}
-
-.btn-danger {
-    width: 57px;
+    width: 58px;
 }
 
 .btn-custom:hover {
