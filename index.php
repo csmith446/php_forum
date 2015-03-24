@@ -39,6 +39,11 @@
                     if (len > 0) return
                     else event.preventDefault();
                 });
+                
+                $("div.forum-row").click(function() {
+                    var addr = $(this).children("div.forum-id").attr("name");
+                   $(location).attr('href','/php_forum/#' + addr); 
+                });
             });
         </script>
     </head>
@@ -69,16 +74,18 @@
                     <button type="button" id='close-btn' class="btn btn-custom" href="/php_forum/" >Close</button>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
+                    <li><a href="#">Create Account</a></li>
+                    <li><a href="#">Member Log In</a></li>                    
+                    <!--<li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                             role="button" aria-expanded="false">Memebers<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="#">Messages</a></li>
                             <li><a href="#">Settings</a></li>
                             <li class="divider"></li>
-                            <li><a href="#">Log Out</a></li>
+                            <li><a href="#">Log in</a></li>
                         </ul>
-                    </li>
+                    </li>-->
                 </ul>
             </div>
         </nav>
@@ -142,6 +149,7 @@
         while($row = $result->fetchArray())
         {
             echo '    <div class=\'row forum-row row-bottom-border\'>' . PHP_EOL;
+            echo '        <div class=\'forum-id hidden\' name=\'', $row['id'], '\'></div>';
             echo '        <div class=\'col-sm-6 pad mobile-view\'>' . PHP_EOL;
             echo '            <span class=\'forum-name-top\'>' . PHP_EOL;
             echo '                <u><a href=\'#\' id=\'forum-link\'>', $row['name'], '</a></u></span><br />' . PHP_EOL;

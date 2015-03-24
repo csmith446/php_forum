@@ -8,6 +8,7 @@ u > a {
 
 .row a:link { color: #e61c1c; }
 .row a:visited { color: #730e0e; }
+.row u > a:hover { color: #e61c1c; }
 .row a:hover { color: #730e0e; }
 .row a:active { color: #730e0e; }
 
@@ -18,7 +19,6 @@ u > a {
 
 .navbar {
     min-height: 36px;
-    margin-top: 1px;
     margin-bottom: 0px;
     border-radius: 0px;
 }
@@ -112,6 +112,7 @@ u > a {
 
 .forum-row:hover {
     background-color: #dafbfb;
+    cursor:pointer;
 }
 
 @media screen and (max-width: 767px) {
